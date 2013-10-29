@@ -7,10 +7,11 @@ class UserMailer < ActionMailer::Base
     devise_mail(record, :confirmation_instructions)
   end
 
-  def reset_password_instructions(record)
-    devise_mail(record, :reset_password_instructions)
+  def reset_password_instructions(user)
+    @user = user
+    mail(:to => user.email, :subject => "Welcome to HR Factory")
   end
-
+  
   def unlock_instructions(record)
     devise_mail(record, :unlock_instructions)
   end

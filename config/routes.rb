@@ -1,8 +1,8 @@
 App1::Application.routes.draw do
+ 
   resources :companies
-
   resources :groups
-  #resources :users, :only => [:index]
+  resources :users, :only => [:index]
   match 'users/' => 'users#index',:as => :user,         :via => :GET
   match 'users/update/:id' => 'users#update',:as => :user,         :via => :PUT
   match 'users/group/' => 'users#add_to_group_as_member',:as => :user,         :via => :PUT
@@ -61,9 +61,7 @@ App1::Application.routes.draw do
 # You can have the root of your site routed with "root"
 # just remember to delete public/index.html.
 # root :to => 'welcome#index'
-
 # See how all your routes lay out with "rake routes"
-
 # This is a legacy wild controller route that's not recommended for RESTful applications.
 # Note: This route will make all actions in every controller accessible via GET requests.
 # match ':controller(/:action(/:id))(.:format)'

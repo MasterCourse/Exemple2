@@ -15,8 +15,8 @@ class CompaniesController < ApplicationController
     @company = Company.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @company }
+      #format.html # show.html.erb
+      format.json { render json: @company , json: @company.groups}
     end
   end
 

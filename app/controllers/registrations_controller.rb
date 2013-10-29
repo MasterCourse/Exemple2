@@ -13,13 +13,13 @@ class RegistrationsController < Devise::RegistrationsController
       if @user.save
         # Tell the UserMailer to send a welcome Email after save
         if !@user.token.nil?
-          puts "achref"
+         
           UserMailer.welcome_email(@user).deliver
         end
         #format.html { redirect_to(@user, :notice => 'User was successfully created.') }
         format.json { render :json => @user, :status => :created, :location => @user }
       else
-        puts "houssem"
+        
         #format.html { render :action => "new" }
         format.json { render :status => 422 }
       end
